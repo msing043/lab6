@@ -4,7 +4,7 @@
  *      Lab Section:
  *      Assignment: Lab #6  Exercise #1
  *      Exercise Description: [optional - include for your own benefit]
- *
+ *      Link: https://youtube.com/shorts/chDAzogaiBc?feature=share
  *      I acknowledge all content contained herein, excluding template or example
  *      code, is my own original work.
  */
@@ -62,7 +62,7 @@ void Tick(){
                 case firstled:
                         PORTB=0x01;
                         break;
-                case seconled:
+                case secondled:
                         PORTB=0x02;
                         break;
                 case thirdled:
