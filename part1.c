@@ -39,33 +39,34 @@ void TimerSet (unsigned long M) {
         _avr_timer_M = M;
         _avr_timer_cntcurr = _avr_timer_M;
 }
-enum state {initial, firstSwitch,switchLed} SM;
+enum state {initial, firstled,secondled,thirdled} SM;
 void Tick(){
         switch(SM){
                 case initial:
-                        SM=firstSwitch;
+                        SM=firstled;
                         break;
 
-                case firstSwitch:
-                        SM=switchLed;
-break;
-                case switchLed:
-                        SM=initial;
+                case firstled:
+                        SM=secondled;
+                        break;
+                case secondled:
+                        SM=thirdled;
+                        break;
+                case thirdled:
+                        SM=firstled;
                         break;
         }
         switch(SM){
                 case initial:
                         break;
-                case firstSwitch:
+                case firstled:
                         PORTB=0x01;
                         break;
-                case switchLed:
-                        if(PORTB==0x04){
-                                PORTB=0x01;
-                        }
-                        else{
-                                PORTB=PORTB<<1;
-                        }
+                case seconled:
+                        PORTB=0x02;
+                        break;
+                case thirdled:
+                        PORTB=0x04;
                         break;
                 default:
                         break;
@@ -74,7 +75,7 @@ break;
 void main() {
  DDRB = 0xFF;
  PORTB = 0x00;
- TimerSet(1000);
+ TimerSet(100);
  TimerOn();
  while (1) {
         Tick();
