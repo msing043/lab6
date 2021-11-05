@@ -94,6 +94,7 @@ void Tick(){
                   PORTB=0x04;
                 }
               }
+              break;
 
               default:
                 SM=initial;
@@ -112,6 +113,7 @@ void Tick(){
                   break;
                 case thirdled:
                   PORTB=0x04;
+                  ledtracker=0x04;
                   break;
                 case pausegame:
                   break;
