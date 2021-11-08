@@ -2,9 +2,9 @@
  *       lab:
  *  Partner(s) Name: 
  *      Lab Section:
- *      Assignment: Lab #6  Exercise #1
+ *      Assignment: Lab #6  Exercise #2
  *      Exercise Description: [optional - include for your own benefit]
- *
+ *      DEMO VIDEO:https: https://youtu.be/zqsD6qvugi8
  *      I acknowledge all content contained herein, excluding template or example
  *      code, is my own original work.
  */
@@ -84,8 +84,7 @@ void Tick(){
               if((~PINA&0x01)!=0x01){
                 SM=initial;
                 if(ledtracker==0x01){
-                                                                                                                                                                                          81,13         43%
- PORTB=0X01;
+                PORTB=0X01;
                 }
                 else if(ledtracker==0x02){
                   PORTB=0x02;
@@ -123,15 +122,15 @@ void Tick(){
             }
 void main() {
         DDRA=0x00;
-  PORTA=0xFF;
+        PORTA=0xFF;
         DDRB=0xFF;
-  PORTB=0x00;
+        PORTB=0x00;
         TimerSet(300);
         TimerOn();
   while(1) {
-                Tick();
-                while (!TimerFlag);
-                TimerFlag = 0;
+        Tick();
+        while (!TimerFlag);
+        TimerFlag = 0;
         }
 }
 
